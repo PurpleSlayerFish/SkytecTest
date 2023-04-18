@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54dbc1cac33749eb8c4974cd733aba4a, type: 3}
+  m_Name: AsteroidSizeConfig
+  m_EditorClassIdentifier: 
+  _asteroidSizes:
+  - _sprite: {fileID: -1888268068, guid: 26d62dfc28d5cd94c80a8c1e51b17a73, type: 3}
+    _offset: 0.35
+    _speedMultiplier: 1.6
+    _bigShards: 0
+    _smallShards: 0
+  - _sprite: {fileID: 1826356197, guid: 26d62dfc28d5cd94c80a8c1e51b17a73, type: 3}
+    _offset: 0.5
+    _speedMultiplier: 1.3
+    _bigShards: 0
+    _smallShards: 0
+  - _sprite: {fileID: 995453710, guid: 26d62dfc28d5cd94c80a8c1e51b17a73, type: 3}
+    _offset: 0.75
+    _speedMultiplier: 1
+    _bigShards: 2
+    _smallShards: 1

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 675bbcef96bb40a587668ab15d68cd5f, type: 3}
+  m_Name: AdaptablePoolConfig
+  m_EditorClassIdentifier: 
+  _poolData:
+  - _prefabName: Asteroid
+    _bundleName: prefabs
+    _defaultCapacity: 10
+    _maxPoolSize: 15
+  - _prefabName: Bullet
+    _bundleName: prefabs
+    _defaultCapacity: 15
+    _maxPoolSize: 20
+  - _prefabName: Alien
+    _bundleName: prefabs
+    _defaultCapacity: 5
+    _maxPoolSize: 7

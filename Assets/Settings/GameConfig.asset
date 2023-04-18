@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f44ddf304d37434e8e7a70bd7b4c49c8, type: 3}
+  m_Name: GameConfig
+  m_EditorClassIdentifier: 
+  _movementTime: 0.55
+  _rotationTime: 0.75
+  movementVelocity: 3.5
+  _rotationVelocity: 270
+  _laserLifeTime: 0.35
+  _laserUseCooldown: 0.3
+  _laserDelay: 0.15
+  _laserMaxCount: 3
+  _laserRestorationTime: 15
+  outerOuterBorderOffset: 2
+  _innerBorderOffset: 2
+  _asteroidsSpawnTime: 2.1
+  _asteroidsVelocityFrom: 0.75
+  _asteroidsVelocityTo: 2.5
+  _asteroidsRotationFrom: 20
+  _asteroidsRotationTo: 120
+  _aliensVelocity: 1.7
+  _aliensFrameMaxRotation: 1.3
+  _aliensFireSpread: 17
+  _aliensFireTimelapse: 3
+  _aliensSpawnTime: 15
+  _aliensAvoidDistance: 4.5
+  _bulletVelocity: 15
+  _bulletSpawnTime: 0.17
+  _spaceshipOffset: 0.55
+  _alienOffset: 0.55
+  _bulletOffset: 0.125
+  _laserOffset: 0.125
+  _alienHitScore: 30
+  _asteroidHitScore: 7

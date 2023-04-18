@@ -1,0 +1,70 @@
+ManifestFileVersion: 0
+CRC: 2838919989
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 713b51e11e294ce72fdf2be06f9f86fb
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ac0c252ec6a6d57302b7792299b1145f
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 20
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 81
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 39fa3d8997a24136984ca6e2c99902bc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c82b4d6cf7e5423893ee6052aa66b1d4, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: af84b165a3db48ba98b1a42f28f1c4ee, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 223
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Kefir_test
+  ClassName: PurpleSlayerFish.View.Services.ParallaxService.EndlessParallaxService/EndlessLayer
+- AssemblyName: Unity.InputSystem
+  ClassName: UnityEngine.InputSystem.InputAction
+- AssemblyName: Unity.InputSystem
+  ClassName: UnityEngine.InputSystem.InputActionMap
+- AssemblyName: Unity.InputSystem
+  ClassName: UnityEngine.InputSystem.InputBinding
+- AssemblyName: Unity.InputSystem
+  ClassName: UnityEngine.InputSystem.InputControlScheme
+- AssemblyName: Unity.InputSystem
+  ClassName: UnityEngine.InputSystem.InputControlScheme/DeviceRequirement
+Assets:
+- Assets/AssetBundles/Prefabs/Core/[Parallax].prefab
+- Assets/AssetBundles/Prefabs/Core/[MainCamera].prefab
+- Assets/AssetBundles/Prefabs/Core/Transform.prefab
+- Assets/AssetBundles/Prefabs/Core/[UI].prefab
+Dependencies: []

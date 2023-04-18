@@ -1,0 +1,40 @@
+ManifestFileVersion: 0
+CRC: 3558108917
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 7ab724edc95940efa121b2442446ada0
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 3985e8ceeff3600a75aaeeed46edcef9
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: cbce5a82a82149a0abbed7f9c4c1c6c8, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/AssetBundles/Prefabs/Effects/Trail.prefab
+- Assets/AssetBundles/Prefabs/Effects/Explosion.prefab
+Dependencies: []

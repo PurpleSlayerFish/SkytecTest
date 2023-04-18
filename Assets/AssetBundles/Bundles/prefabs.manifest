@@ -1,0 +1,77 @@
+ManifestFileVersion: 0
+CRC: 3288387394
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: d53f575ff230f53357261717eb5a27be
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 7a20c189ba9a846da5c17689bbcb1901
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 7bbb23d980e143ee85162f9d3d18fa8c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 39fa3d8997a24136984ca6e2c99902bc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 76471724184c445bafe54412f6190e9f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 36bb4a9f18804466a169fe6748d52dd5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 10bcfc72d3074911afebdbb5efb33b84, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Unity.InputSystem
+  ClassName: UnityEngine.InputSystem.InputAction
+- AssemblyName: Unity.InputSystem
+  ClassName: UnityEngine.InputSystem.InputActionMap
+- AssemblyName: Unity.InputSystem
+  ClassName: UnityEngine.InputSystem.InputBinding
+- AssemblyName: Unity.InputSystem
+  ClassName: UnityEngine.InputSystem.InputControlScheme
+- AssemblyName: Unity.InputSystem
+  ClassName: UnityEngine.InputSystem.InputControlScheme/DeviceRequirement
+- AssemblyName: Unity.InputSystem
+  ClassName: UnityEngine.InputSystem.PlayerInput/ActionEvent
+- AssemblyName: Unity.InputSystem
+  ClassName: UnityEngine.InputSystem.PlayerInput/ControlsChangedEvent
+- AssemblyName: Unity.InputSystem
+  ClassName: UnityEngine.InputSystem.PlayerInput/DeviceLostEvent
+- AssemblyName: Unity.InputSystem
+  ClassName: UnityEngine.InputSystem.PlayerInput/DeviceRegainedEvent
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.ArgumentCache
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.PersistentCallGroup
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.PersistentListenerMode
+Assets:
+- Assets/AssetBundles/Prefabs/Objects/Bullet.prefab
+- Assets/AssetBundles/Prefabs/Objects/Asteroid.prefab
+- Assets/AssetBundles/Prefabs/Objects/Player.prefab
+- Assets/AssetBundles/Prefabs/Objects/Alien.prefab
+Dependencies:
+- C:/Users/alex2/Desktop/Kefir_Test/Assets/AssetBundles/Bundles/temporary_prefabs
