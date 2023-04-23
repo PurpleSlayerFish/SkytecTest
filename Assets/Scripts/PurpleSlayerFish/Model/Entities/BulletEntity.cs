@@ -1,6 +1,6 @@
 ﻿using PurpleSlayerFish.Core.Model;
+using PurpleSlayerFish.Core.Services.Pools.PoolAdapter;
 using PurpleSlayerFish.Core.View;
-using PurpleSlayerFish.Model.Services.Pools.PoolAdapter;
 
 namespace PurpleSlayerFish.Model.Entities
 {

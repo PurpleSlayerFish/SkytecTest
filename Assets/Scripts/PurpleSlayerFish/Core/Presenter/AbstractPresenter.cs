@@ -1,6 +1,6 @@
 ﻿using PurpleSlayerFish.Core.Model;
+using PurpleSlayerFish.Core.Services.SubscriptionObserver;
 using PurpleSlayerFish.Core.View;
-using PurpleSlayerFish.Model.Services.SubscriptionObserver;
 
 namespace PurpleSlayerFish.Core.Presenter
 {

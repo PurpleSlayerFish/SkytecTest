@@ -2,23 +2,24 @@
 using System.Collections.Generic;
 using PurpleSlayerFish.Core.Model;
 using PurpleSlayerFish.Core.Model.Systems;
+using PurpleSlayerFish.Core.Services;
+using PurpleSlayerFish.Core.Services.ScriptableObjects.GameConfig;
+using PurpleSlayerFish.Core.Services.SubscriptionObserver;
 using PurpleSlayerFish.Model.Entities;
-using PurpleSlayerFish.Model.Services;
-using PurpleSlayerFish.Model.Services.Pools.PoolProvider;
-using PurpleSlayerFish.Model.Services.ScriptableObjects.GameConfig;
-using PurpleSlayerFish.Model.Services.SubscriptionObserver;
 using PurpleSlayerFish.Presenter.Services.EffectsManager;
 using UnityEngine;
+using Zenject;
 
 namespace PurpleSlayerFish.Model.Systems
 {
     public class IntersectionProcessor : IRunSystem
     {
-        private IEntitiesContext _entitiesContext;
-        private IGameConfig _gameConfig;
-        private ISubscriptionObserver _subscriptionObserver;
-        private MathUtils _mathUtils;
-        private EffectsManager _effectsManager;
+        [Inject] private IEntitiesContext _entitiesContext;
+        [Inject] private IGameConfig _gameConfig;
+        [Inject] private ISubscriptionObserver _subscriptionObserver;
+        [Inject] private EffectsManager _effectsManager;
+        
+        private MathUtils _mathUtils = new();
 
         private PlayerEntity _player;
         private AsteroidEntity _asteroid;
@@ -29,15 +30,6 @@ namespace PurpleSlayerFish.Model.Systems
         private List<IEntity> _lasers;
         private IHasWorldData _source;
         private IHasWorldData _target;
-
-        public IntersectionProcessor(IEntitiesContext entitiesContext, IPoolProvider tempPoolProvider, IGameConfig gameConfig, ISubscriptionObserver subscriptionObserver)
-        {
-            _entitiesContext = entitiesContext;
-            _gameConfig = gameConfig;
-            _subscriptionObserver = subscriptionObserver;
-            _mathUtils = new MathUtils();
-            _effectsManager = new EffectsManager(tempPoolProvider);
-        }
 
         public void Run()
         {

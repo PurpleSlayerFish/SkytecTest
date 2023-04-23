@@ -1,49 +1,39 @@
 ﻿using PurpleSlayerFish.Core.Model;
 using PurpleSlayerFish.Core.Model.Systems;
+using PurpleSlayerFish.Core.Services;
+using PurpleSlayerFish.Core.Services.LevelBorders;
+using PurpleSlayerFish.Core.Services.ScriptableObjects.AsteroidSize;
+using PurpleSlayerFish.Core.Services.ScriptableObjects.GameConfig;
+using PurpleSlayerFish.Core.Services.Spawners;
+using PurpleSlayerFish.Core.Services.SubscriptionObserver;
+using PurpleSlayerFish.Core.Ui.Windows.GameWindow;
 using PurpleSlayerFish.Model.Entities;
-using PurpleSlayerFish.Model.Services;
-using PurpleSlayerFish.Model.Services.LevelBorders;
-using PurpleSlayerFish.Model.Services.Pools.PoolProvider;
-using PurpleSlayerFish.Model.Services.ScriptableObjects.AsteroidSize;
-using PurpleSlayerFish.Model.Services.ScriptableObjects.GameConfig;
-using PurpleSlayerFish.Model.Services.Spawners;
-using PurpleSlayerFish.Model.Services.SubscriptionObserver;
-using PurpleSlayerFish.Windows.Controller;
 using UnityEngine;
+using Zenject;
 
 namespace PurpleSlayerFish.Model.Systems
 {
-    public class AsteroidProcessor : IRunSystem
+    public class AsteroidProcessor : IRunSystem, IInstallSystem
     {
         public const string SUBSCRIPTION_ON_ASTEROID_INTERSECT = "on_asteroid_intersect";
         
-        private IEntitiesContext _entitiesContext;
-        private ISubscriptionObserver _subscriptionObserver;
-        private IGameConfig _gameConfig;
-        private ILevelBorders _levelBorders;
-        private AsteroidSpawner _asteroidSpawner;
-        private IAsteroidSizeConfig _asteroidSizeConfig;
-        private MathUtils _mathUtils;
+        [Inject] private IEntitiesContext _entitiesContext;
+        [Inject] private ISubscriptionObserver _subscriptionObserver;
+        [Inject] private IGameConfig _gameConfig;
+        [Inject] private ILevelBorders _levelBorders;
+        [Inject] private AsteroidSpawner _asteroidSpawner;
+        [Inject] private IAsteroidSizeConfig _asteroidSizeConfig;
+        private MathUtils _mathUtils = new();
 
         private PlayerEntity _player;
         private float _asteroidSpawnElapsedTime;
         private AsteroidSize _size;
 
-        public AsteroidProcessor(IEntitiesContext entitiesContext, IPoolProvider adaptablePoolProvider, 
-            IGameConfig gameConfig, ISubscriptionObserver subscriptionObserver, ILevelBorders levelBorders, IAsteroidSizeConfig asteroidSizeConfig)
+        public void Install()
         {
-            _entitiesContext = entitiesContext;
-            _subscriptionObserver = subscriptionObserver;
-            _gameConfig = gameConfig;
-            _levelBorders = levelBorders;
-            _asteroidSizeConfig = asteroidSizeConfig;
-            _levelBorders.InitAllBorders();
-            _mathUtils = new MathUtils();
-
-            _asteroidSpawner = new AsteroidSpawner(entitiesContext, adaptablePoolProvider, subscriptionObserver, _levelBorders, asteroidSizeConfig);
-            subscriptionObserver.Subscribe(SUBSCRIPTION_ON_ASTEROID_INTERSECT, new EntitySubscription<AsteroidEntity>(OnAsteroidIntersect));
+            _subscriptionObserver.Subscribe(SUBSCRIPTION_ON_ASTEROID_INTERSECT, new EntitySubscription<AsteroidEntity>(OnAsteroidIntersect));
         }
-
+        
         public void Run()
         {
             _player = _entitiesContext.SelectFirst<PlayerEntity>(PlayerEntity.ENTITY_TYPE);

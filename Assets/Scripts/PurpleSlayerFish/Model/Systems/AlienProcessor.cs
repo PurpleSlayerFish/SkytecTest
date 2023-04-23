@@ -1,38 +1,31 @@
 ﻿using System.Collections.Generic;
 using PurpleSlayerFish.Core.Model;
 using PurpleSlayerFish.Core.Model.Systems;
+using PurpleSlayerFish.Core.Services;
+using PurpleSlayerFish.Core.Services.LevelBorders;
+using PurpleSlayerFish.Core.Services.ScriptableObjects.GameConfig;
+using PurpleSlayerFish.Core.Services.Spawners;
+using PurpleSlayerFish.Core.Services.SubscriptionObserver;
+using PurpleSlayerFish.Core.Ui.Windows.GameWindow;
 using PurpleSlayerFish.Model.Entities;
-using PurpleSlayerFish.Model.Services;
-using PurpleSlayerFish.Model.Services.LevelBorders;
-using PurpleSlayerFish.Model.Services.Pools.PoolProvider;
-using PurpleSlayerFish.Model.Services.ScriptableObjects.GameConfig;
-using PurpleSlayerFish.Model.Services.Spawners;
-using PurpleSlayerFish.Model.Services.SubscriptionObserver;
-using PurpleSlayerFish.Windows.Controller;
 using UnityEngine;
+using Zenject;
 
 namespace PurpleSlayerFish.Model.Systems
 {
-    public class AlienProcessor : IRunSystem
+    public class AlienProcessor : IRunSystem, IInstallSystem
     {
         public const string SUBSCRIPTION_ON_ALIEN_INTERSECT = "on_alien_intersect";
         
-        private IEntitiesContext _entitiesContext;
-        private IGameConfig _gameConfig;
-        private ISubscriptionObserver _subscriptionObserver;
-        private ILevelBorders _levelBorders;
-        private AlienSpawner _alienSpawner;
-        private MathUtils _mathUtils;
+        [Inject] private IEntitiesContext _entitiesContext;
+        [Inject] private IGameConfig _gameConfig;
+        [Inject] private ISubscriptionObserver _subscriptionObserver;
+        [Inject] private ILevelBorders _levelBorders;
+        [Inject] private AlienSpawner _alienSpawner;
+        private MathUtils _mathUtils = new();
 
-        public AlienProcessor(IEntitiesContext entitiesContext, IPoolProvider adaptablePoolProvider, IGameConfig gameConfig, ISubscriptionObserver subscriptionObserver, ILevelBorders levelBorders)
+        public void Install()
         {
-            _entitiesContext = entitiesContext;
-            _gameConfig = gameConfig;
-            _subscriptionObserver = subscriptionObserver;
-            _levelBorders = levelBorders;
-            _alienSpawner = new AlienSpawner(entitiesContext, adaptablePoolProvider, subscriptionObserver);
-            _mathUtils = new MathUtils();
-            
             _subscriptionObserver.Subscribe(SUBSCRIPTION_ON_ALIEN_INTERSECT, new EntitySubscription<AlienEntity>(OnAlienIntersect));
         }
 

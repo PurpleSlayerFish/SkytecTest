@@ -1,7 +1,7 @@
 ﻿using PurpleSlayerFish.Core.Presenter;
+using PurpleSlayerFish.Core.Services.ScriptableObjects.AsteroidSize;
+using PurpleSlayerFish.Core.Services.SubscriptionObserver;
 using PurpleSlayerFish.Model.Entities;
-using PurpleSlayerFish.Model.Services.ScriptableObjects.AsteroidSize;
-using PurpleSlayerFish.Model.Services.SubscriptionObserver;
 using PurpleSlayerFish.Presenter.Utils;
 using PurpleSlayerFish.View.Views;
 

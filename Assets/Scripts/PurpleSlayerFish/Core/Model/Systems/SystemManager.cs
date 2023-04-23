@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using Zenject;
 
 namespace PurpleSlayerFish.Core.Model.Systems
 {
-    public class SystemManager : ISystemManager
+    public class SystemManager : ISystemManager, ITickable
     {
         private List<IInstallSystem> _initSystems;
         private List<IRunSystem> _updateSystems;
@@ -14,11 +15,9 @@ namespace PurpleSlayerFish.Core.Model.Systems
         }
         
         public void RunInitSystems() => InstallSystems(_initSystems);
-        public void RunUpdateSystems() => RunSystems(_updateSystems);
-        public void AttachInitSystem<T>() where T : IInstallSystem, new() => AttachSystem(new T(), _initSystems);
-        public void AttachUpdateSystem<T>() where T : IRunSystem, new() => AttachSystem(new T(), _updateSystems);
         public void AttachInitSystem(IInstallSystem system) => AttachSystem(system, _initSystems);
         public void AttachUpdateSystem(IRunSystem system) => AttachSystem(system, _updateSystems);
+        private void AttachSystem<T>(T system, List<T> systems) where T : ISystem => systems.Add(system);
         
         private void InstallSystems(List<IInstallSystem> systems)
         {
@@ -26,21 +25,16 @@ namespace PurpleSlayerFish.Core.Model.Systems
                 systems[i].Install();
         }
         
-        private void RunSystems(List<IRunSystem> systems)
+        public void Tick()
         {
-            for (int i = 0; i < systems.Count; i++)
-                systems[i].Run();
+            for (int i = 0; i < _updateSystems.Count; i++)
+                _updateSystems[i].Run();
         }
-
-        private void AttachSystem<T>(T system, List<T> systems) where T : ISystem => systems.Add(system);
     }
 
     public interface ISystemManager
     {
         void RunInitSystems();
-        void RunUpdateSystems();
-        void AttachInitSystem<T>() where T : IInstallSystem, new();
-        void AttachUpdateSystem<T>() where T : IRunSystem, new();
         void AttachInitSystem(IInstallSystem system);
         void AttachUpdateSystem(IRunSystem system);
     }

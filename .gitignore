@@ -1,37 +1,4 @@
-﻿Skip to content
-Search or jump to…
-Pull requests
-Issues
-Codespaces
-Marketplace
-Explore
- 
-@PurpleSlayerFish 
-PurpleSlayerFish
-/
-Kefir_Test
-Public
-Cannot fork because you own this repository and are not a member of any organizations.
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-Beta Try the new code view
-Kefir_Test/.gitignore
-@PurpleSlayerFish
-PurpleSlayerFish Initial commit
-Latest commit 0fec463 4 minutes ago
- History
- 1 contributor
-60 lines (49 sloc)  1020 Bytes
- 
-
-# This .gitignore file should be placed at the root of your Unity project directory
+﻿# This .gitignore file should be placed at the root of your Unity project directory
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
@@ -90,19 +57,3 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
-
-Footer
-© 2023 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Kefir_Test/.gitignore at main · PurpleSlayerFish/Kefir_Test

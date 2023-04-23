@@ -1,39 +1,34 @@
 ﻿using PurpleSlayerFish.Core.Model;
 using PurpleSlayerFish.Core.Model.Systems;
+using PurpleSlayerFish.Core.Services;
+using PurpleSlayerFish.Core.Services.ScriptableObjects.GameConfig;
+using PurpleSlayerFish.Core.Services.Spawners;
+using PurpleSlayerFish.Core.Services.SubscriptionObserver;
 using PurpleSlayerFish.Model.Entities;
-using PurpleSlayerFish.Model.Services;
-using PurpleSlayerFish.Model.Services.LevelBorders;
-using PurpleSlayerFish.Model.Services.Pools.PoolProvider;
-using PurpleSlayerFish.Model.Services.ScriptableObjects.GameConfig;
-using PurpleSlayerFish.Model.Services.Spawners;
-using PurpleSlayerFish.Model.Services.SubscriptionObserver;
 using UnityEngine;
+using Zenject;
 
 namespace PurpleSlayerFish.Model.Systems
 {
-    public class BulletProcessor : IRunSystem
+    public class BulletProcessor : IRunSystem, IInstallSystem
     {
         public const string SUBSCRIPTION_PLAYER_FIRE = "player_fire";
         public const string SUBSCRIPTION_ALIEN_FIRE = "alien_fire";
         public const string SUBSCRIPTION_ON_BULLET_INTERSECT = "on_bullet_intersect";
         
-        private IEntitiesContext _entitiesContext;
-        private IGameConfig _gameConfig;
-        private BulletSpawner _bulletSpawner;
-        private MathUtils _mathUtils;
+        [Inject] private IEntitiesContext _entitiesContext;
+        [Inject] private IGameConfig _gameConfig;
+        [Inject] private ISubscriptionObserver _subscriptionObserver;
+        [Inject] private BulletSpawner _bulletSpawner;
+        private MathUtils _mathUtils = new();
         
         private BulletEntity _tempBullet;
 
-        public BulletProcessor(IEntitiesContext entitiesContext, IPoolProvider adaptablePoolProvider, 
-            IGameConfig gameConfig, ISubscriptionObserver subscriptionObserver, ILevelBorders levelBorders)
+        public void Install()
         {
-            _entitiesContext = entitiesContext;
-            _gameConfig = gameConfig;
-            _mathUtils = new MathUtils();
-            _bulletSpawner = new BulletSpawner(entitiesContext, adaptablePoolProvider, subscriptionObserver, levelBorders);
-            subscriptionObserver.Subscribe(SUBSCRIPTION_PLAYER_FIRE, PlayerFireSubscription);
-            subscriptionObserver.Subscribe<AlienEntity>(SUBSCRIPTION_ALIEN_FIRE, AlienFireSubscription);
-            subscriptionObserver.Subscribe(SUBSCRIPTION_ON_BULLET_INTERSECT, new EntitySubscription<BulletEntity>(OnBulletIntersect));
+            _subscriptionObserver.Subscribe(SUBSCRIPTION_PLAYER_FIRE, PlayerFireSubscription);
+            _subscriptionObserver.Subscribe<AlienEntity>(SUBSCRIPTION_ALIEN_FIRE, AlienFireSubscription);
+            _subscriptionObserver.Subscribe(SUBSCRIPTION_ON_BULLET_INTERSECT, new EntitySubscription<BulletEntity>(OnBulletIntersect));
         }
 
         public void Run()

@@ -1,19 +1,15 @@
-﻿using PurpleSlayerFish.Model.Services.Pools.PoolProvider;
+﻿using PurpleSlayerFish.Core.Services.Pools.PoolProvider;
 using UnityEngine;
+using Zenject;
 
 namespace PurpleSlayerFish.Presenter.Services.EffectsManager
 {
     public class EffectsManager
     {
         private const string EXPLOSION_PREFAB = "Explosion";
-        private readonly IPoolProvider _poolProvider;
+        [Inject] private readonly IEffectsPoolProvider _poolProvider;
 
         private Transform _tempTransform;
-
-        public EffectsManager(IPoolProvider poolProvider)
-        {
-            _poolProvider = poolProvider;
-        }
 
         public void CastExplosion(Vector2 position)
         {

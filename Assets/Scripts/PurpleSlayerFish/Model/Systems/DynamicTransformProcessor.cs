@@ -2,6 +2,7 @@
 using PurpleSlayerFish.Core.Model;
 using PurpleSlayerFish.Core.Model.Systems;
 using UnityEngine;
+using Zenject;
 
 namespace PurpleSlayerFish.Model.Systems
 {
@@ -9,15 +10,10 @@ namespace PurpleSlayerFish.Model.Systems
     {
         public const string DYNAMIC_TRANSFORM_ENTITY_TYPE = "dynamic_transform";
         
-        private IEntitiesContext _entitiesContext;
+        [Inject] private IEntitiesContext _entitiesContext;
 
         private List<IEntity> _entities;
         private IHasWorldData _tempEntity;
-
-        public DynamicTransformProcessor(IEntitiesContext entitiesContext)
-        {
-            _entitiesContext = entitiesContext;
-        }
 
         public void Run()
         {

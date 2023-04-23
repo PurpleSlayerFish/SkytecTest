@@ -1,7 +1,10 @@
 ﻿using PurpleSlayerFish.Core.Model.Systems;
-using PurpleSlayerFish.Model.Services.PauseService;
-using PurpleSlayerFish.Model.Services.SubscriptionObserver;
+using PurpleSlayerFish.Core.Services.PauseService;
+using PurpleSlayerFish.Core.Services.SubscriptionObserver;
+using PurpleSlayerFish.Core.Ui.Container;
+using PurpleSlayerFish.Core.Ui.Windows.PauseWindow;
 using UnityEngine;
+using Zenject;
 
 namespace PurpleSlayerFish.Model.Systems
 {
@@ -9,14 +12,10 @@ namespace PurpleSlayerFish.Model.Systems
     {
         public const string SUBSCRIPTION_PAUSE = "pause";
         
-        private IPauseService _pauseService;
-        private ISubscriptionObserver _subscriptionObserver;
-        
-        public PauseInstaller(IPauseService pauseService, ISubscriptionObserver subscriptionObserver)
-        {
-            _pauseService = pauseService;
-            _subscriptionObserver = subscriptionObserver;
-        }
+        [Inject] private IPauseService _pauseService;
+        // todo переделать контейнер
+        [Inject] private IUiContainer _uiContainer;
+        [Inject] private ISubscriptionObserver _subscriptionObserver;
 
         public void Install() => _subscriptionObserver.Subscribe(SUBSCRIPTION_PAUSE, new SimpleSubscription(ProcessPause));
 
@@ -24,7 +23,11 @@ namespace PurpleSlayerFish.Model.Systems
         {
             _pauseService.IsPaused = !_pauseService.IsPaused;
             Time.timeScale = _pauseService.IsPaused ? 0 : 1;
-            Debug.Log("Pause: " + _pauseService.IsPaused);
+            
+            if (_pauseService.IsPaused)
+                _uiContainer.Show<PauseController>();
+            else
+                _uiContainer.Hide<PauseController>();
         }
     }
 }

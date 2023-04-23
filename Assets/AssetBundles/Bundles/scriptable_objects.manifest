@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2348418695
+CRC: 2506177006
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 59b2948bb7f516d5917eb9f217f3f69d
+    Hash: 3d1ae2516d79fb9b2d3a3f517cf59ea9
   TypeTreeHash:
     serializedVersion: 2
-    Hash: eba6ad36acffe3cce539c9ce8474cf2f
+    Hash: 75036bdecf7eb8770308060eba06fb2e
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -24,12 +24,12 @@ ClassTypes:
 - Class: 213
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers:
-- AssemblyName: Kefir_test
-  ClassName: PurpleSlayerFish.Model.Services.Pools.Config.PoolData
-- AssemblyName: Kefir_test
-  ClassName: PurpleSlayerFish.Model.Services.Pools.Config.TempPoolData
-- AssemblyName: Kefir_test
-  ClassName: PurpleSlayerFish.Model.Services.ScriptableObjects.AsteroidSize.AsteroidSize
+- AssemblyName: Assembly-CSharp
+  ClassName: PurpleSlayerFish.Core.Model.Services.Pools.Config.PoolData
+- AssemblyName: Assembly-CSharp
+  ClassName: PurpleSlayerFish.Core.Model.Services.Pools.Config.TempPoolData
+- AssemblyName: Assembly-CSharp
+  ClassName: PurpleSlayerFish.Core.Model.Services.ScriptableObjects.AsteroidSize.AsteroidSize
 Assets:
 - Assets/Settings/TempPoolConfig.asset
 - Assets/Settings/GameConfig.asset

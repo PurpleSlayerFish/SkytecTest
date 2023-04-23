@@ -1,16 +1,20 @@
 ﻿using System;
+using PurpleSlayerFish.Core.Data;
 using PurpleSlayerFish.Core.Model;
 using PurpleSlayerFish.Core.Model.Systems;
-using PurpleSlayerFish.Core.Windows.Container;
+using PurpleSlayerFish.Core.Services.DataStorage;
+using PurpleSlayerFish.Core.Services.SceneLoader;
+using PurpleSlayerFish.Core.Services.ScriptableObjects.GameConfig;
+using PurpleSlayerFish.Core.Services.SubscriptionObserver;
+using PurpleSlayerFish.Core.Ui.Container;
+using PurpleSlayerFish.Core.Ui.Windows.GameWindow;
 using PurpleSlayerFish.Model.Entities;
-using PurpleSlayerFish.Model.Services.PrefabProvider;
-using PurpleSlayerFish.Model.Services.ScriptableObjects.GameConfig;
-using PurpleSlayerFish.Model.Services.SubscriptionObserver;
 using PurpleSlayerFish.Presenter.Presenters;
 using PurpleSlayerFish.View.Views;
-using PurpleSlayerFish.Windows.Controller;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Zenject;
+using IPrefabProvider = PurpleSlayerFish.Core.Services.PrefabProvider.IPrefabProvider;
 using Object = UnityEngine.Object;
 
 namespace PurpleSlayerFish.Model.Systems
@@ -22,23 +26,15 @@ namespace PurpleSlayerFish.Model.Systems
         private const string PLAYER_PREFAB_BUNDLE = "prefabs";
         private const string PLAYER_PREFAB_NAME = "Player";
 
-        private IEntitiesContext _entitiesContext;
-        private IPrefabProvider _prefabProvider;
-        private ISubscriptionObserver _subscriptionObserver;
-        private IGameConfig _gameConfig;
-        private IUiContainer _uiContainer;
+        [Inject] private IEntitiesContext _entitiesContext;
+        [Inject] private IPrefabProvider _prefabProvider;
+        [Inject] private ISubscriptionObserver _subscriptionObserver;
+        [Inject] private IGameConfig _gameConfig;
+        [Inject] private IUiContainer _uiContainer;
+        [Inject] private ISceneLoader _sceneLoader;
+        [Inject] private IDataStorage<PlayerData> _dataStorage;
         
         private PlayerEntity _player;
-
-        public PlayerInstaller(IEntitiesContext entitiesContext, IPrefabProvider prefabProvider, 
-            ISubscriptionObserver subscriptionObserver, IGameConfig gameConfig, IUiContainer uiContainer)
-        {
-            _entitiesContext = entitiesContext;
-            _prefabProvider = prefabProvider;
-            _subscriptionObserver = subscriptionObserver;
-            _gameConfig = gameConfig;
-            _uiContainer = uiContainer;
-        }
 
         public void Install()
         {
@@ -70,9 +66,12 @@ namespace PurpleSlayerFish.Model.Systems
             _uiContainer.BuildDialog()
                 .WithLabel("Game over")
                 .WithDescription("Score: " + _player.Score)
-                .WithButton("Restart", () => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex))
+                .WithButton("Restart", () => _sceneLoader.Load(SceneManager.GetActiveScene().name))
                 .Build()
                 .Show();
+
+            if (_dataStorage.Load().Score < _player.Score)
+                _dataStorage.Save(new PlayerData{Score = _player.Score});
         }
     }
 }

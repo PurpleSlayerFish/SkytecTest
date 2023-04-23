@@ -1,38 +1,33 @@
 ﻿using System.Collections.Generic;
 using PurpleSlayerFish.Core.Model;
 using PurpleSlayerFish.Core.Model.Systems;
+using PurpleSlayerFish.Core.Services.ScriptableObjects.GameConfig;
+using PurpleSlayerFish.Core.Services.SubscriptionObserver;
+using PurpleSlayerFish.Core.Ui.Windows.GameWindow;
 using PurpleSlayerFish.Model.Entities;
-using PurpleSlayerFish.Model.Services;
-using PurpleSlayerFish.Model.Services.ScriptableObjects.GameConfig;
-using PurpleSlayerFish.Model.Services.SubscriptionObserver;
-using PurpleSlayerFish.Windows.Controller;
 using UnityEngine;
+using Zenject;
 
 namespace PurpleSlayerFish.Model.Systems
 {
-    public class LaserProcessor : IRunSystem
+    public class LaserProcessor : IRunSystem, IInstallSystem
     {
         public const string SUBSCRIPTION_LASER_PERFORMED = "player_laser";
         public const string SUBSCRIPTION_LASER_LAUNCHED = "on_laser_launched";
         public const string SUBSCRIPTION_LASER_PREPARE = "on_laser_prepare";
         public const string SUBSCRIPTION_LASER_CANCELED = "on_laser_canceled";
         
-        private IEntitiesContext _entitiesContext;
-        private IGameConfig _gameConfig;
-        private ISubscriptionObserver _subscriptionObserver;
-        private MathUtils _mathUtils;
+        [Inject] private IEntitiesContext _entitiesContext;
+        [Inject] private IGameConfig _gameConfig;
+        [Inject] private ISubscriptionObserver _subscriptionObserver;
         
         private PlayerEntity _player;
         private LaserEntity _laser;
         private List<IEntity> _lasers;
 
-        public LaserProcessor(IEntitiesContext entitiesContext, IGameConfig gameConfig, ISubscriptionObserver subscriptionObserver)
+        public void Install()
         {
-            _entitiesContext = entitiesContext;
-            _gameConfig = gameConfig;
-            _subscriptionObserver = subscriptionObserver;
-            _mathUtils = new MathUtils();
-            subscriptionObserver.Subscribe(SUBSCRIPTION_LASER_PERFORMED, OnLaserPerformed);
+            _subscriptionObserver.Subscribe(SUBSCRIPTION_LASER_PERFORMED, OnLaserPerformed);
         }
 
         public void Run()

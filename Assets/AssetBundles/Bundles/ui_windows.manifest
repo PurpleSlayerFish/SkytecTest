@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2136233916
+CRC: 3957697113
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: efd03fe7480baec8b3e6957c2bbef208
+    Hash: d69b2a36ebd63fc484bf7c82a561bdc7
   TypeTreeHash:
     serializedVersion: 2
-    Hash: f41ca571eb185314e4bc312ad166ecc1
+    Hash: a68d87f64ae4cc93335b7a280f7d35d9
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -20,11 +20,21 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: a895cd0fdb944730ad96a1c63174abc2, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 4559564ace1248c28f93b30b41e85060, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 3525c3a527b84c049ce1488facf53175, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f83f050301554a43b460ecacebc956a1, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
 - Class: 114
@@ -32,8 +42,18 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 4ba0e28b30594df695b7ae444c4e9345, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 059959025937486eac3920f6747b5c8c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f105fc154a544b399fb527c26731825f, type: 3}
 - Class: 115
+  Script: {instanceID: 0}
+- Class: 213
   Script: {instanceID: 0}
 - Class: 222
   Script: {instanceID: 0}
@@ -71,8 +91,24 @@ SerializeReferenceClassIdentifiers:
 - AssemblyName: UnityEngine.TextCoreFontEngineModule
   ClassName: UnityEngine.TextCore.GlyphRect
 - AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.AnimationTriggers
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.Button/ButtonClickedEvent
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.ColorBlock
+- AssemblyName: UnityEngine.UI
   ClassName: UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.Navigation
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.SpriteState
 Assets:
+- Assets/AssetBundles/Prefabs/UI/Windows/SplashWindow.prefab
+- Assets/AssetBundles/Prefabs/UI/Windows/MainMenuWindow.prefab
+- Assets/AssetBundles/Prefabs/UI/Windows/ShopWindow.prefab
 - Assets/AssetBundles/Prefabs/UI/Windows/DialogWindow.prefab
+- Assets/AssetBundles/Prefabs/UI/Windows/LoadingWindow.prefab
 - Assets/AssetBundles/Prefabs/UI/Windows/GameWindow.prefab
-Dependencies: []
+- Assets/AssetBundles/Prefabs/UI/Windows/PauseWindow.prefab
+Dependencies:
+- C:/Users/alex2/Desktop/Skytec Games/Assets/AssetBundles/Bundles/ui_elements

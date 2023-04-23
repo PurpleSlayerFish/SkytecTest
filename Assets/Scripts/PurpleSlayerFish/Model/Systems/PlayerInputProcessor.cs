@@ -1,31 +1,24 @@
 ﻿using PurpleSlayerFish.Core.Model;
 using PurpleSlayerFish.Core.Model.Systems;
+using PurpleSlayerFish.Core.Services;
+using PurpleSlayerFish.Core.Services.ScriptableObjects.GameConfig;
+using PurpleSlayerFish.Core.Services.SubscriptionObserver;
+using PurpleSlayerFish.Core.Ui.Windows.GameWindow;
 using PurpleSlayerFish.Model.Entities;
-using PurpleSlayerFish.Model.Services;
-using PurpleSlayerFish.Model.Services.ScriptableObjects.GameConfig;
-using PurpleSlayerFish.Model.Services.SubscriptionObserver;
-using PurpleSlayerFish.Windows.Controller;
 using UnityEngine;
+using Zenject;
 
 namespace PurpleSlayerFish.Model.Systems
 {
     public class PlayerInputProcessor : IRunSystem
     {
-        private IEntitiesContext _entitiesContext;
-        private IGameConfig _gameConfig;
-        private ISubscriptionObserver _subscriptionObserver;
-        private MathUtils _mathUtils;
+        [Inject] private IEntitiesContext _entitiesContext;
+        [Inject] private IGameConfig _gameConfig;
+        [Inject] private ISubscriptionObserver _subscriptionObserver;
+        private MathUtils _mathUtils = new();
 
         private PlayerEntity _entity;
         private float ROTATION_DAMPER = 0.01f;
-
-        public PlayerInputProcessor(IEntitiesContext entitiesContext, IGameConfig gameConfig, ISubscriptionObserver subscriptionObserver)
-        {
-            _entitiesContext = entitiesContext;
-            _gameConfig = gameConfig;
-            _subscriptionObserver = subscriptionObserver;
-            _mathUtils = new MathUtils();
-        }
 
         public void Run()
         {

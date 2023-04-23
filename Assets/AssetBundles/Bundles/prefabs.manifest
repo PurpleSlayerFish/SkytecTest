@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3288387394
+CRC: 2842215611
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: d53f575ff230f53357261717eb5a27be
+    Hash: 89e4ffedc8d1c9f00da9a0db18fe525e
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 7a20c189ba9a846da5c17689bbcb1901
+    Hash: aff55f4cb3c340014c2f57fdae99c6e0
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -74,4 +74,4 @@ Assets:
 - Assets/AssetBundles/Prefabs/Objects/Player.prefab
 - Assets/AssetBundles/Prefabs/Objects/Alien.prefab
 Dependencies:
-- C:/Users/alex2/Desktop/Kefir_Test/Assets/AssetBundles/Bundles/temporary_prefabs
+- C:/Users/alex2/Desktop/Skytec Games/Assets/AssetBundles/Bundles/temporary_prefabs
