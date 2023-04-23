@@ -1,4 +1,7 @@
-# Kefir_Test
+После скачивания требуется собрать ассет бандлы:
+
+Assets => Create Asset Bundles
+
 
 Space - Тяга
 
